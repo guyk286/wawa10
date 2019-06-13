@@ -1,0 +1,40 @@
+<div class="card">
+
+  <mdb-card-header class="primary-color white-text">
+    <h3 class="card-title">Bienvenue sur le site du club de tennis de table de Limal-Wavre</h3>
+  </mdb-card-header>
+
+  <div class="card-body">
+
+    <div *ngIf="loading">
+      <mdb-spinner spinnerType="small"></mdb-spinner>
+    </div>
+
+    <div *ngIf=" ! loading">
+      <div *ngIf="! editMode">
+        <div><p style="color:red;">Dernière mise à jour de cette page: {{page.updated_at}}</p></div>
+        <div *ngIf="isUserAdmin()"><button (click)="onEdit()">Editer</button></div>
+        <div *ngIf="page" [innerHTML]="page.content | safeHtml "></div>
+      </div>
+
+      <div class="col-12" *ngIf="editMode">
+        <div class="row">
+          <div class="col-12">
+            <ckeditor
+              [(ngModel)]="pageContent"
+              [readonly]="pageContentReadOnly"
+              [ngModelOptions]="{standalone: true}"
+              debounce="500">
+              </ckeditor>
+            <br>
+            <button>Save</button> &nbsp;<button (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<br><br><br><br>

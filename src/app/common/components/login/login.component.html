@@ -1,0 +1,91 @@
+
+<div fxLayout.lg="row" fxLayoutAlign="center center" >
+
+<div fxFlex="33" fxFlex.lt-md="5">
+<table>
+</table>
+</div>
+
+<div fxFlex="33" fxFlex.lt-md="90">
+		<br />
+		<div class="card">
+		    <div class="card-header lighten-1 white-text">
+		        Login
+		    </div>
+		    <div class="card-body">
+		    	<h4 class="card-title">Se connecter</h4>
+		        
+					<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+					
+						<div class="md-form">
+							<i class="fa fa-user prefix grey-text"></i>
+							<input type="text" id="materialFormCardNameEx" formControlName="username" class="form-control" mdbInputDirective>
+							<label for="materialFormCardNameEx" class="font-weight-light">Your username</label>
+						</div>
+						
+						<div class="md-form">
+							<i class="fa fa-lock prefix grey-text"></i>
+							<input type="password" id="materialFormCardPasswordEx" formControlName="password" class="form-control"
+								mdbInputDirective>
+							<label for="materialFormCardPasswordEx" class="font-weight-light">Your password</label>
+						</div>
+						
+									<table>
+							<tr>
+							<td align="center" style="color: red; font-weight: bold;">
+							{{ message }}
+							</td>
+							</tr>
+							</table>
+						<div class="text-center py-4 mt-3">
+							<button class="btn btn-dark-green waves-light" type="submit" [disabled]="loginForm.invalid" mdbWavesEffect>Se connecter</button>
+						</div>
+							
+						<hr />
+							<!--  
+		        			<div class="text-center py-0 mt-3">
+								        <button class="btn btn-sm btn-unique waves-light" id="but1" type="submit" mdbWavesEffect>Renvoyer mon mot de passe</button>
+								        <label for="but1" class="font-weight-light">Your password</label>
+								      </div>
+								      
+							<div class="text-center py-0 mt-3">
+								        <button class="btn btn-sm btn-purple waves-light" id="but2" type="submit" mdbWavesEffect>Renvoyer mon lien d'activation</button>
+								        <label for="but2" class="font-weight-light">Your password</label>
+								      </div>
+								      -->
+						<div class="text-left">
+							<table>
+							<tr>
+							<td>
+							<small>Mot de passe oublié ?</small><br />
+							<button class="btn btn-sm btn-unique waves-light" id="but1" 
+								type="button" (click)="onResendPassword()"mdbWavesEffect [disabled]="isUsernameFieldEmpty()">Renvoyer mon mot de passe</button>
+							</td>
+							
+
+							
+							</tr>
+							</table>
+								
+						
+						</div>
+					</form>
+						
+	
+		    </div>
+		    
+
+			
+		</div>
+
+</div>
+
+<div fxFlex="33" fxFlex.lt-md="5">
+</div>
+
+
+</div>
+
+<div fxLayout.sm="row" fxLayoutAlign="center center" >
+test row
+</div>
