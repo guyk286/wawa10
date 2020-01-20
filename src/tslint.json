@@ -7,6 +7,7 @@
             "app",
             "camelCase"
         ],
+        "comment-format": [false, "check-space", "check-uppercase", "allow-trailing-lowercase"],
         "component-selector": [
             true,
             "element",
@@ -27,7 +28,8 @@
             "check-whitespace"
           ],
 
-        "no-trailing-whitespace": false
+        "no-trailing-whitespace": false,
+        "whitespace": [false, "check-branch", "check-operator", "check-typecast"]
 
     }
 }
