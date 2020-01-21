@@ -61,9 +61,12 @@ export class LoginComponent implements OnInit
       this.loginForm.value.password
     )
     .subscribe( 
-        res => {
-              console.log('login ok'+JSON.stringify(res) );
-              this.postLogin(res);
+        user => {
+              console.log('login ok', user);
+              console.warn('login post process NOT called!');
+              this.toastMessageService.addSuccess('Login', 'Bonjour '+user.firstname);
+              this.router.navigate(['default']);
+              //this.postLogin(user);
             }
       ,
         err =>{
