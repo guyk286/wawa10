@@ -63,7 +63,7 @@
     "npm": "^6.13.6",
     "popper.js": "^1.16.0",
     "primeicons": "^2.0.0",
-    "primeng": "^9.0.0-rc.2",
+    "primeng": "^9.0.0-rc.4",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.4",
     "screenfull": "^3.3.0",
