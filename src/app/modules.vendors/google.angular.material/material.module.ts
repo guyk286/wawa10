@@ -1,14 +1,26 @@
-import { NgModule } from '@angular/core';
-import { MatDatepickerModule, MatCheckboxModule,
-         MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule,
-         MatTabsModule, MatCard, MatCardModule, MatProgressSpinnerModule,
-         MatMenuModule, MatButtonToggleModule
-  } from '@angular/material';
+import { NgModule, InjectionToken } from '@angular/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+// import { MatCard } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule  } from '@angular/material/progress-spinner';
+import { MatMenuModule  } from '@angular/material/menu';
+import { MatButtonToggleModule  } from '@angular/material/button-toggle';
 
-import {MatTableModule, MatExpansionModule, MatSlideToggleModule,
-  MAT_DIALOG_DEFAULT_OPTIONS, MatBadgeModule, MatStepperModule, MatRadioModule} from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+// import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatRadioModule  } from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogConfig} from '@angular/material/dialog';
 
 import {MatButtonModule} from '@angular/material/button';
 //import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,6 +31,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 
+// const MAT_DIALOG_DEFAULT_OPTIONS: InjectionToken<MatDialogConfig<any>>;
 @NgModule({
   imports: [
     MatBadgeModule,
@@ -81,7 +94,7 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [],
 
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    // {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ]
 })
 export class MaterialModule { }
