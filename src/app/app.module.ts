@@ -42,6 +42,7 @@ import { MessageService } from './common/message/message.service';
 
 import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MessageComponent } from './common/message/message.component';
+import { AppCommonModule } from './modules/common/app-common.module';
 //import { MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 //import { ButtonsModule, WavesModule, CollapseModule } from 'ng-uikit-pro-standard'
 
@@ -62,9 +63,9 @@ import { MessageComponent } from './common/message/message.component';
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientModule,
-    MDBBootstrapModulesPro.forRoot(),
     MdBootstrapProModule,
     PrimengModule,
+    MaterialModule,
     DeviceDetectorModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {
@@ -73,9 +74,6 @@ import { MessageComponent } from './common/message/message.component';
       },
     }),
 
-    MaterialModule,  
-    PrimengModule,
-    
     // REDUX
     // Redux
     StoreModule.forRoot(APP_REDUCERS, { metaReducers:  APP_META_REDUCERS }),
@@ -87,7 +85,10 @@ import { MessageComponent } from './common/message/message.component';
       routerState: RouterState.Minimal
     }),
 
+    // Application Modules
     AuthModule.forRoot(),
+    AppCommonModule,
+
   ],
   providers: [
     MessageService,

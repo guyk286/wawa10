@@ -150,4 +150,16 @@ export class AuthService {
         postData.append('username' , username );
         return this.httpClient.post<MessageModel>( apiUrl, postData );
     }
+
+    isUserAdmin(): boolean
+    {
+      console.warn('function still not implemented !!!');
+      return true;
+    }
+
+    isUserSuperAdmin(): boolean
+    {
+      console.warn('function still not implemented !!!');
+      return false;
+    }
 }

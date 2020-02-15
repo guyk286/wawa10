@@ -18,7 +18,9 @@ export class AppComponent implements OnInit, OnDestroy
 {
   title = 'Liwa Site 2';
 
-  
+  ckeckingBrowser=true;
+  browserAllowed=true;
+
   toastMessageEventsSubscription: Subscription;
   
   constructor(
@@ -27,14 +29,24 @@ export class AppComponent implements OnInit, OnDestroy
     private primengMessageService: PrimengMessageService,
     private router: Router, 
     private toastMessageService: ToastMessageService,
-  ) {}
+  ) {
+    console.log('app constructor called !');
+  }
 
   ngOnInit(): void
   {
     this.toastMessageEventsSubscription = this.toastMessageService.toastMessageEvents
       .subscribe( (toastMessage: ToastMessage) => this.primengMessageService.add( toastMessage) );
 
-    console.log('browser:',this.deviceService.browser);
+    const browserName=this.deviceService.browser;
+    console.log('browser:', browserName);
+    if(browserName==='IE' || browserName==='MS-Edge')
+    {
+      this.browserAllowed=false;
+    }
+    this.ckeckingBrowser=false;
+
+    
     this.router.navigate(['default']);
   }
 
