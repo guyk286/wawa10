@@ -8,13 +8,15 @@
 	<div fxLayout="column" *ngIf="browserAllowed" >
 	
 
-            <div>
+            <div fxFlex="1">
                 <app-header></app-header>
                 <p-toast [style]="{marginTop: '60px'}"></p-toast>
                 <!-- <p-toast></p-toast> -->
-            </div>
+			</div>
+			
+			<div fxFlex="1"></div>
             
-			<div class="site-content">
+			<div fxFlex="20" class="site-content">
 				<div fxLayout="row">
 					<div fxFlex="2%"></div>
 					<div fxFlex="96%">
@@ -26,7 +28,7 @@
 
             
             
-            <div>
+            <div fxFlex="1">
                 <app-footer></app-footer>
             </div>
             
