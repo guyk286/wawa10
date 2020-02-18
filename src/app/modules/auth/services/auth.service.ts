@@ -20,6 +20,9 @@ import { MessageModel } from '../../../common/model/message.model';
 })
 export class AuthService {
 
+    // tslint:disable-next-line:variable-name
+    private _user: AuthenticatedUserModel = null;
+
     public userEvents = new BehaviorSubject<AuthenticatedUserModel>(undefined);
 
     constructor(
@@ -104,6 +107,7 @@ export class AuthService {
     }
 
     postProcessLogin(user: AuthenticatedUserModel) {
+      this._user=user;
       if (user) {
         this.store.dispatch( new LoginAction({user}) );
       }
@@ -122,6 +126,7 @@ export class AuthService {
         //this.store.dispatch( new CalendarInitAction());
         //this.languageService.determineDefaultLanguage();
       }
+      
     }
 
 
@@ -154,12 +159,14 @@ export class AuthService {
     isUserAdmin(): boolean
     {
       console.warn('function still not implemented !!!');
-      return true;
+      // return true;
+      return this._user && this._user!==null; // && this.user.isAdmin && this.user.isAdmin===true;
     }
 
     isUserSuperAdmin(): boolean
     {
       console.warn('function still not implemented !!!');
-      return false;
+      // return false;
+      return this._user && this._user!==null; // && this.user.isSuperAdmin && this.user.isSuperAdmin===true;
     }
 }

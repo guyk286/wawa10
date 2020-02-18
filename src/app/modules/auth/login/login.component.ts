@@ -61,30 +61,17 @@ export class LoginComponent implements OnInit
       this.loginForm.value.password
     )
     .subscribe( 
-        user => {
+        (user: AuthenticatedUserModel) => {
               console.log('login ok', user);
-              console.warn('login post process NOT called!');
-              this.toastMessageService.addSuccess('Login', 'Bonjour '+user.firstname);
+              // console.warn('login post process NOT called!');
+              this.toastMessageService.addSuccess('Login', 'Bonjour '+user.prenom);
               this.router.navigate(['default']);
-              //this.postLogin(user);
+              this.postLogin(user);
             }
       ,
         err =>{
-          //console.error('login fails',err );
-          const error=err.error;
-          const status=err.status;
-          if(status===409)
-          {
-              //this.message=this.error_AccountStillNotActivated; // 'Account still not activated !';
-              this.error='AccountStillNotActivated';
-          }
-          else
-          {
-              //this.message='Invalid user or password';
-              this.error='InvalidUserOrPassword';
-          }
-            
-          console.error('login fails - '+this.error, err );
+          this.error='InvalidUserOrPassword';
+          console.error('login fails - '+err.error.message, err );
         }
     );
     

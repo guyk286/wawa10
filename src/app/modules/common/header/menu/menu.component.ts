@@ -1,22 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
+import { AuthenticatedUserModel } from '../../../auth/model/authenticated-user.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
-  user: any; // NOT A GOOD IDEA HERE !Temporary solution !
+  user: AuthenticatedUserModel = null;
+  userEventsSubscription: Subscription;
 
   constructor(
     private authService: AuthService,
     private router: Router,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.userEventsSubscription = this.authService.userEvents.subscribe(user => {
+      this.user = user;
+    });
+  }
+
+  ngOnDestroy() 
+  {
+    if (this.userEventsSubscription) this.userEventsSubscription.unsubscribe();
   }
 
   getLogoImageUrl()
