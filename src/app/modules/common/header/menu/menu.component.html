@@ -1,11 +1,22 @@
-<mdb-navbar class="navCss"
-            SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar ie-nav justify-content-start" [containerInside]="false" >
+<mdb-navbar #navbar class="navCss"
+            SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar ie-nav " 
+            [containerInside]="false" >
 
         <logo>
-            <a class="navbar-brand" href="http://www.liwa.be" target="_blank"> <img class="bpost-logo" 
-                [src]="'./assets/img/logo_liwa_2020.png'" alt="logo" title="CTT Limal-Wavre - BBW123" width="50px"
+          <div class="logo-normal">
+            <a id="navbar-brand" class="navbar-brand" href="http://www.liwa.be" target="_blank"> <img class="bpost-logo" 
+                [src]="'./assets/img/logo_liwa_2020.png'" alt="CTT Limal-Wavre - BBW123" 
+                title="CTT Limal-Wavre - BBW123" width="50px"
                 height="40px" (click)="onLogoClicked()" />
             </a>
+          </div>
+          <div class="logo-small">
+            <a id="navbar-brand" class="navbar-brand" href="http://www.liwa.be" target="_blank"> <img class="bpost-logo" 
+                [src]="'./assets/img/logo_liwa_2020.png'" alt="CTT Limal-Wavre - BBW123" 
+                title="CTT Limal-Wavre - BBW123" width="40px"
+                height="30px" (click)="onLogoClicked()" />
+            </a>
+          </div>
         </logo>
 
         <links>
@@ -129,20 +140,18 @@
                         Admin
                     </a>
                     <div class="dropdown-menu dropdown-primary dropdown-menu-right" role="menu">
-                        <a class="dropdown-item" routerLinkActive="active" routerLink="admin/initdata" *ngIf="getAuthService().isUserSuperAdmin()">Init Data</a>
+                        <a class="dropdown-item" routerLinkActive="active" routerLink="admin/interclubs" *ngIf="getAuthService().isUserSuperAdmin()">Interclubs</a>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/province">Provinces</a>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/saisons">Saisons</a>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/saison/add">Nouvelle Saison</a>
-                        <a class="dropdown-item" routerLinkActive="active" routerLink="tournoi/tournois" *ngIf="isSaisonActive()">Tournois</a>
-                        <a class="dropdown-item" routerLinkActive="active" routerLink="tournoi/new" *ngIf="isSaisonActive()">Nouveau tournoi</a>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/arbitres">Arbitres</a>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/manage">Manage Profils et Inscriptions</a>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/export">Exporter les résultats</a>
-                        <div class="divider dropdown-divider"></div>
+                        <!-- <div class="divider dropdown-divider"></div>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/aft">AFT Test</a>
                         <a class="dropdown-item" routerLinkActive="active" routerLink="admin/vttl">VTTL Test</a>
                         <div class="divider dropdown-divider"></div>
-                        <a class="dropdown-item" routerLinkActive="active" routerLink="devStatus">Dev status</a>
+                        <a class="dropdown-item" routerLinkActive="active" routerLink="devStatus">Dev status</a> -->
                     </div>
                 </li>
                     
@@ -168,7 +177,7 @@
 
             <ul class="navbar-nav nav-flex-icons">
                 
-                <li class="nav-item waves-light" mdbWavesEffect *ngIf=" ! user " routerLink="login">
+                <li class="nav-item waves-light" mdbWavesEffect *ngIf=" ! user " (click)="onLogin($event)">
                     <a class="nav-link"><i class="fa fa-sign-in"></i> Login</a>
                 </li>
                 

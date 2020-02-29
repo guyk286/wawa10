@@ -43,6 +43,7 @@ import { MessageService } from './common/message/message.service';
 import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MessageComponent } from './common/message/message.component';
 import { AppCommonModule } from './modules/common/app-common.module';
+import { AdminModule } from './modules/admin/admin.module';
 //import { MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 //import { ButtonsModule, WavesModule, CollapseModule } from 'ng-uikit-pro-standard'
 
@@ -55,7 +56,7 @@ import { AppCommonModule } from './modules/common/app-common.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    
 
     //
     FlexLayoutModule,
@@ -88,7 +89,10 @@ import { AppCommonModule } from './modules/common/app-common.module';
     // Application Modules
     AuthModule.forRoot(),
     AppCommonModule,
+    AdminModule,
 
+    // Import the app routing module after the other app modules, so that the routes are merged
+    AppRoutingModule, 
   ],
   providers: [
     MessageService,
