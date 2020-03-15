@@ -8,6 +8,7 @@ export class AuthUserModel {
     email: string;
     password: string;
     mustChangePassword: boolean;
+    changePasswordJeton: string;
     enabled: boolean;
     authUserGroup: AuthUserGroupModel;
 }

@@ -74,4 +74,14 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.navigateHome();
     this.navbar.hide();
   }
+
+  onMyProfile(event)
+  {
+    // this.router.navigate(['myProfile']);
+    // TODO
+    /*
+        Réutiliser ici le formulaire - fiche d'un membre et l'appliquer à l'utilisateur actuellement
+        connecté.
+    */
+  }
 }

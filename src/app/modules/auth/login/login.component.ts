@@ -63,10 +63,19 @@ export class LoginComponent implements OnInit
     .subscribe( 
         (user: AuthenticatedUserModel) => {
               console.log('login ok', user);
-              // console.warn('login post process NOT called!');
-              this.toastMessageService.addSuccess('Login', 'Bonjour '+user.prenom);
-              this.router.navigate(['default']);
-              this.postLogin(user);
+              if(user.mustChangePassword===true)
+              {
+                this.toastMessageService.addWarn('Login', 'Bonjour '+user.prenom+', changement de mot de passe obligatoire!');
+                this.router.navigate(['auth', 'changePassword']);
+                this.preLogin(user);
+              }
+              else
+              {
+                // console.warn('login post process NOT called!');
+                this.toastMessageService.addSuccess('Login', 'Bonjour '+user.prenom);
+                this.router.navigate(['default']);
+                this.postLogin(user);
+              }
             }
       ,
         err =>{
@@ -75,6 +84,11 @@ export class LoginComponent implements OnInit
         }
     );
     
+  }
+
+  preLogin( user: AuthenticatedUserModel)
+  {
+    this.authService.preProcessLogin(user);
   }
 
   postLogin( user: AuthenticatedUserModel)

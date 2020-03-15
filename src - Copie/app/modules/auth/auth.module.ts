@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './login/login.component';
 import { MdBootstrapProModule } from '../../modules.vendors/mdbootstrap/md-bootstrap-pro.module';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 //import { ComTranslateModule } from '../../modules.vendors/com.translate/com.translate.module';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MdBootstrapProModule } from '../../modules.vendors/mdbootstrap/md-boots
   imports: [
     CommonModule,
     AuthRoutingModule,
+    PasswordStrengthMeterModule,
     // ComTranslateModule,
     MaterialModule,
     PrimengModule,

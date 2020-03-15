@@ -66,7 +66,7 @@
 
       <li><a class="nav-link" routerLinkActive="active" routerLink="/"><i class="fa fa-address-book-o" aria-hidden="true"></i> Contact<span class="sr-only">(current)</span></a></li>
     
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" *ngIf="getAuthService().isUserAdmin()">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false"><i class="fa fa-calendar" aria-hidden="true"></i>  Admin</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
@@ -92,6 +92,10 @@
 
     <ul class="navbar-nav nav-flex-icons">
                 
+      <li class="nav-item waves-light" mdbWavesEffect *ngIf=" user " (click)="onMyProfile($event)">
+        <a class="nav-link" title="{{user.username}}">&nbsp; <i class="fa fa-user prefix"></i> &nbsp;</a>
+      </li>
+      
       <li class="nav-item waves-light" mdbWavesEffect *ngIf=" ! user " routerLink="login">
           <a class="nav-link"><i class="fa fa-sign-in"></i> Login</a>
       </li>

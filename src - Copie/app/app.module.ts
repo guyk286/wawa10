@@ -20,6 +20,7 @@ import { MaterialModule } from './modules.vendors/google.angular.material/materi
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthModule } from './modules/auth/auth.module';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 //import { CustomRouteSerializer } from './state/custom-route-serializer';
 
 // JWT
@@ -59,6 +60,7 @@ import { AdminModule } from './modules/admin/admin.module';
     
 
     //
+    
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
