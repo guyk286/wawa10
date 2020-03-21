@@ -7,54 +7,32 @@
 <mdb-tabset #staticTabs [buttonClass]="'md-tabs'" [contentClass]="'card'">
     <!--Panel 1-->
     <mdb-tab heading="Equipes">
-        <app-admin-equipes></app-admin-equipes>
+        <app-admin-equipes 
+          (messieursTeams)="onReceiveTeams(1, $event)"
+          (damesTeams)="onReceiveTeams(2, $event)"
+          (veteransTeams)="onReceiveTeams(3, $event)"
+          (aineesTeams)="onReceiveTeams(4, $event)"
+          (jeunesTeams)="onReceiveTeams(5, $event)"
+          ></app-admin-equipes>
     </mdb-tab>
     <!--Panel 2-->
-    <mdb-tab heading="Messieurs/Dames">
-      <div class="row">
-        <div class="col-12">
-          <br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
-            porro voluptate odit minima.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
-            porro voluptate odit minima.</p>
-        </div>
-      </div>
+    <mdb-tab heading="Messieurs">
+      <app-admin-equipes-by-category [teams]="afttClubMessieursTeamModel" [category]="1" [matchType]="2"></app-admin-equipes-by-category>
+    </mdb-tab>
+    <mdb-tab heading="Dames">
+      <app-admin-equipes-by-category [teams]="afttClubDamesTeamModel" [category]="2" [matchType]="4"></app-admin-equipes-by-category>
     </mdb-tab>
     <!--Panel 3-->
-    <mdb-tab heading="Aînées">
-      <div class="row">
-        <div class="col-12">
-          <br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
-            porro voluptate odit minima.</p>
-        </div>
-      </div>
+    <mdb-tab heading="Vétérans">
+      <app-admin-equipes-by-category [teams]="afttClubVeteransTeamModel" [category]="3" [matchType]="4"></app-admin-equipes-by-category>
     </mdb-tab>
     <!--Panel 4-->
-    <mdb-tab heading="Vétérans">
-      <div class="row">
-        <div class="col-12">
-          <br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
-            porro voluptate odit minima.</p>
-        </div>
-      </div>
+    <mdb-tab heading="Aînées">
+      <app-admin-equipes-by-category [teams]="afttClubAineesTeamModel" [category]="4" [matchType]="4"></app-admin-equipes-by-category>
     </mdb-tab>
     <!--Panel 5-->
     <mdb-tab heading="Jeunes">
-      <div class="row">
-        <div class="col-12">
-          <br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
-            porro voluptate odit minima.</p>
-        </div>
-      </div>
+      <app-admin-equipes-by-category [teams]="afttClubJeunesTeamModel" [category]="13" [matchType]="4"></app-admin-equipes-by-category>
     </mdb-tab>
   </mdb-tabset>
 

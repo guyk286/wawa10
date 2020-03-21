@@ -12,3 +12,17 @@ export class AuthUserModel {
     enabled: boolean;
     authUserGroup: AuthUserGroupModel;
 }
+
+export class AuthDomainModel
+{
+    id: number;
+    domain: string;
+    commentaire: string;
+}
+
+export class AuthRoleModel 
+{
+    id: number;
+    role: string;
+    authDomain: AuthDomainModel;
+}

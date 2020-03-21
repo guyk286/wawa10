@@ -72,7 +72,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.authService.logout();
     this.navigateHome();
-    this.navbar.hide();
+    if(this.navbar)  this.navbar.hide();
   }
 
   onMyProfile(event)

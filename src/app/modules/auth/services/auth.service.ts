@@ -152,8 +152,6 @@ export class AuthService {
       return this.preLoginuser;
     }
 
-
-
     refreshToken(refreshToken: string): Observable<any> {
       const url=`${environment.apiUrl}`;  
       const apiUrl = `${url}/auth/refresh-token/`;
@@ -180,17 +178,30 @@ export class AuthService {
         return this.httpClient.post<MessageModel>( apiUrl, postData );
     }
 
-    isUserAdmin(): boolean
-    {
-      // console.warn('function still not implemented !!!');
-      // return true;
-      return this._user && this._user!==null; // && this.user.isAdmin && this.user.isAdmin===true;
-    }
-
     isUserSuperAdmin(): boolean
     {
-      // console.warn('function still not implemented !!!');
-      // return false;
-      return this._user && this._user!==null; // && this.user.isSuperAdmin && this.user.isSuperAdmin===true;
+      return this.isUserClubAdmin() && this.isUserStageAdmin() && this.isUserEntrainementAdmin();
     }
+
+    isUserClubAdmin(): boolean
+    {
+      if(this._user===null) return false;
+      const role=this._user.roles.find( r => r.authDomain.domain==='club' && r.role==='admin');
+      return role !==null && role !== undefined;
+    }
+
+    isUserStageAdmin(): boolean
+    {
+      if(this._user===null) return false;
+      const role=this._user.roles.find( r => r.authDomain.domain==='stage' && r.role==='admin');
+      return role !==null && role !== undefined;
+    }
+
+    isUserEntrainementAdmin(): boolean
+    {
+      if(this._user===null) return false;
+      const role=this._user.roles.find( r => r.authDomain.domain==='entrainement' && r.role==='admin');
+      return role !==null && role !== undefined;
+    }
+
 }

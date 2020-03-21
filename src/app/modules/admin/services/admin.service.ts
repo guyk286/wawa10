@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AfttClubTeamModel, AfttTeamsApiGetResponse } from '../interclubs/equipes/model/aftt-team.model';
+import { AfttClubTeamModel, AfttTeamsApiGetResponse } from '../interclubs/model/aftt-team.model';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { map } from 'rxjs/operators';

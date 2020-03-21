@@ -44,6 +44,7 @@ import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MessageComponent } from './common/message/message.component';
 import { AppCommonModule } from './modules/common/app-common.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { ContactModule } from './modules/contact/contact.module';
 // import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 //import { MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 //import { ButtonsModule, WavesModule, CollapseModule } from 'ng-uikit-pro-standard'
@@ -92,7 +93,7 @@ import { AdminModule } from './modules/admin/admin.module';
     AuthModule.forRoot(),
     AppCommonModule,
     AdminModule,
-
+    ContactModule,
     // Import the app routing module after the other app modules, so that the routes are merged
     AppRoutingModule, 
   ],

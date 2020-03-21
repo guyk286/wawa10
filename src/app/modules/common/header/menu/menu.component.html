@@ -64,16 +64,18 @@
                     
       <li><a class="nav-link" routerLinkActive="active" routerLink="/"><i class="fa fa-handshake-o" aria-hidden="true"></i> Sponsors<span class="sr-only">(current)</span></a></li>
 
-      <li><a class="nav-link" routerLinkActive="active" routerLink="/"><i class="fa fa-address-book-o" aria-hidden="true"></i> Contact<span class="sr-only">(current)</span></a></li>
+      <li><a class="nav-link" routerLinkActive="active" routerLink="contact/form"><i class="fa fa-address-book-o" aria-hidden="true"></i> Contact<span class="sr-only">(current)</span></a></li>
     
-      <li class="nav-item dropdown" *ngIf="getAuthService().isUserAdmin()">
+      <li class="nav-item dropdown" *ngIf="getAuthService().isUserClubAdmin()">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false"><i class="fa fa-calendar" aria-hidden="true"></i>  Admin</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
           <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/initdata" *ngIf="getAuthService().isUserSuperAdmin()">Init Data</a></li>
           <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/interclubs">Interclubs</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/province">Provinces</a></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/saisons">Saisons</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/roles" *ngIf="getAuthService().isUserSuperAdmin()">Gestion des rôles</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" routerLink="contact/black-list">Contact black list</a></li>
+
+<!--           <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/saisons">Saisons</a></li>
           <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/saison/add">Nouvelle Saison</a></li>
           <li><a class="dropdown-item" routerLinkActive="active" routerLink="tournoi/tournois" *ngIf="isSaisonActive()">Tournois</a></li>
           <li><a class="dropdown-item" routerLinkActive="active" routerLink="tournoi/new" *ngIf="isSaisonActive()">Nouveau tournoi</a></li>
@@ -84,7 +86,7 @@
           <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/aft">AFT Test</a></li>
           <li><a class="dropdown-item" routerLinkActive="active" routerLink="admin/vttl">VTTL Test</a></li>
           <li><div class="divider dropdown-divider"></div></li>
-          <li><a class="dropdown-item" routerLinkActive="active" routerLink="devStatus">Dev status</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" routerLink="devStatus">Dev status</a></li> -->
         </div>
       </li>
     
