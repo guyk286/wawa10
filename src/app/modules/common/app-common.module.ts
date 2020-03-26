@@ -9,19 +9,25 @@ import { MdBootstrapProModule } from '../../modules.vendors/mdbootstrap/md-boots
 import { EnvService } from './services/env.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../../modules.vendors/google.angular.material/material.module';
+import { PdfViewerComponent } from './pdf/pdf-viewer/pdf-viewer.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, MenuComponent, HomeComponent],
+  declarations: [HeaderComponent, FooterComponent, MenuComponent, HomeComponent, PdfViewerComponent],
   imports: [
     CommonModule,
     PrimengModule,
     MdBootstrapProModule,
     FlexLayoutModule,
     MaterialModule,
+    PdfViewerModule,
+    NgxExtendedPdfViewerModule,
   ],
   exports: [
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PdfViewerComponent
   ],
   providers: [
     EnvService

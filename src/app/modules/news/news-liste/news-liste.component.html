@@ -1,0 +1,8 @@
+<p>news-liste works!</p>
+
+<button (click)="onCreateNews()">Créer une nouvelle news</button>
+<button (click)="onTestPdfViewer()">Test pdf viewer</button>
+
+<div *ngIf="viewPdf">
+    <app-pdf-viewer></app-pdf-viewer>
+</div>

@@ -1,0 +1,92 @@
+<div class="card">
+    <div class="card-header">
+        <strong>Créer une news</strong>
+    </div>
+    <div class="card-body">
+        <!-- <h4 class="card-title">Se connecter</h4> -->
+        <!-- **************************************************************    -->
+            <div class="row">
+
+                <form>
+                    <!-- Grid column -->
+                    <div class="col-lg-5 col-xl-4">
+            
+                    <!-- Featured image -->
+                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 waves-light feature-image" mdbWavesEffect>
+                        <img class="img-fluid news-image" [src]="imageUrl" alt="Sample image">
+                        <a>
+                        <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div>
+
+                        <button class="btn btn-sm">Ajouter une image</button>
+                        <button class="btn btn-sm">Sélectionner une image</button>
+                        <input type="file" accept="image/*" (change)="showPreview($event)" />
+                    </div>
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <div class="col-lg-7 col-xl-8">
+            
+                    <!-- Post title -->
+                    <!-- <h3 class="font-weight-bold mb-3"><strong>Title of the news</strong></h3> -->
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" id="title" formControlName="title" class="form-control" mdbInput width="300px">
+                        <label for="title">Titre de la news</label>
+                    </div>
+            
+            
+                    <div class="md-form">
+                        <i class="fa fa-pencil prefix grey-text"></i>
+                        <textarea type="text" id="presentation" formControlName="presentation" 
+                                class="md-textarea" style="height: 70px"
+                                mdbInput></textarea>
+                        <label for="presentation">Présentation de la news</label>
+                    </div>
+
+                    <!-- liaison externe -->
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" id="title" formControlName="externalLink" class="form-control" mdbInput width="300px">
+                        <label for="title">Liaison externe </label>
+                    </div>
+
+                    <!-- ordre d'affichage -->
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" id="title" formControlName="showOrder" class="form-control" mdbInput width="300px">
+                        <label for="title">Ordre d'affichage</label>
+                    </div>
+
+                    <!-- statut -->
+                    <div class="md-form">
+                        <label for="statut">Statut de la news</label>
+                        <br>
+                        <br>
+                    <select>
+                        <option *ngFor="let kvp of newsStatus" id="statut" 
+                            [value]="kvp.key" 
+                            [label]="kvp.val"></option>
+                    </select>
+                    </div>
+
+                    <!-- Post data -->
+                    <p>Auteur: <a class="font-weight-bold">{{ getUserFullName() }}</a>, 19/04/2018</p>
+                    <!-- Read more button -->
+                    <a mdbBtn color="primary" mdbWavesEffect>Read more</a>
+            
+                    </div>
+                    <!-- Grid column -->
+            
+                </form>
+            </div>
+
+        <!-- **************************************************************    -->
+    </div>
+</div>
+
+<br>
+<br>
