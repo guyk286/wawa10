@@ -18,6 +18,11 @@ export class AuthUserModel {
     {
         return StringUtils.titleCase( this.prenom + ' ' + this.nom );
     } 
+
+    getId(): number
+    {
+        return this.id;
+    }
 }
 
 export class AuthDomainModel

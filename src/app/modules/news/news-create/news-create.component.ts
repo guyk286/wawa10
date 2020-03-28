@@ -5,6 +5,7 @@ import { KvpModel } from '../../../common/model/kvp.model';
 import { AppUtils } from '../../../common/utils/AppUtils';
 import { AuthService } from '../../auth/services/auth.service';
 import { AuthenticatedUserModel } from '../../auth/model/authenticated-user.model';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-news-create',
@@ -14,7 +15,11 @@ import { AuthenticatedUserModel } from '../../auth/model/authenticated-user.mode
 export class NewsCreateComponent implements OnInit {
 
   loc=location.protocol+'//'+location.host;
+  noImageUrl=this.loc+'/assets/news/no-image.jpg';
   imageUrl=this.loc+'/assets/news/no-image.jpg';
+
+  viewPdf=false;
+  pdfUrl=null;
 
   newsForm: FormGroup;
 
@@ -27,17 +32,22 @@ export class NewsCreateComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder, 
+    private newsService: NewsService,
   ) { }
 
   ngOnInit(): void
   {
     this.user=this.authService.getCurrentUser();
     this.newsForm = this.formBuilder.group({
-      nom: ['', Validators.required],
+      title: ['', Validators.required],
       presentation: ['', Validators.required],
+      status: ['VISIBLE', Validators.required],
       externalLink: [''],
-      showOrder: ['', Validators.required],
-      avatar: [null]
+      showOrder: [''],
+      avatar: [null],
+      pdf: [''],
+      image: [''],
+      avatarPdf: [null],
     });
   }
 
@@ -57,6 +67,15 @@ export class NewsCreateComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  onDeleteImage()
+  {
+    this.newsForm.patchValue({
+      avatar: null,
+      image: null
+    });
+    this.imageUrl=this.noImageUrl;
+  }
+
   getUserFullName(): string
   {
     let userFullName='';
@@ -65,5 +84,46 @@ export class NewsCreateComponent implements OnInit {
       userFullName=this.user.getFullName();
     }
     return userFullName;
+  }
+
+  onCreateNews()
+  {
+    console.log('create news:', this.newsForm.value);
+    this.newsService.createNews(this.newsForm.value, this.user)
+      .subscribe(res => console.log('create news result:', res)
+        ,
+        err => console.error('unable to create the news', err)
+    );
+    return false;
+  }
+
+  preloadPdf(event)
+  {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.newsForm.patchValue({
+      avatarPdf: file
+    });
+    this.newsForm.get('avatarPdf').updateValueAndValidity();
+
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.pdfUrl = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  onRemovePdf()
+  {
+    this.newsForm.patchValue({
+      avatarPdf: null,
+      pdf: null
+    });
+    this.pdfUrl=null;
+  }
+
+  onShowPdf(show: boolean)
+  {
+    this.viewPdf=show;
   }
 }

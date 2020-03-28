@@ -6,6 +6,8 @@ import { AppCommonModule } from '../common/app-common.module';
 import { NewsCreateComponent } from './news-create/news-create.component';
 import { MdBootstrapProModule } from '../../modules.vendors/mdbootstrap/md-bootstrap-pro.module';
 import { AuthModule } from '../auth/auth.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewsService } from './services/news.service';
 
 
 @NgModule({
@@ -16,9 +18,12 @@ import { AuthModule } from '../auth/auth.module';
     AppCommonModule,
     MdBootstrapProModule,
     AuthModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
-    NewsRoutingModule
+    NewsRoutingModule,
+    NewsService,
   ]
 
 })

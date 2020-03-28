@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pdf-viewer',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pdf-viewer.component.scss']
 })
 export class PdfViewerComponent implements OnInit {
+
+  @Input()
+  selectedDocument: string;
 
   loc=location.protocol+'//'+location.host;
   pdfDocument=this.loc+'/assets/news/docs/pdf/communication-covid-19.pdf';
@@ -16,6 +19,7 @@ export class PdfViewerComponent implements OnInit {
 
   ngOnInit(): void 
   {
+    console.log('selected document input:', this.selectedDocument);
   }
 
   onSwitchWithDetails()
