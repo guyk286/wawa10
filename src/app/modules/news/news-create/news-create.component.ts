@@ -43,7 +43,7 @@ export class NewsCreateComponent implements OnInit {
       presentation: ['', Validators.required],
       status: ['VISIBLE', Validators.required],
       externalLink: [''],
-      showOrder: [''],
+      showOrder: ['0'],
       avatar: [null],
       pdf: [''],
       image: [''],

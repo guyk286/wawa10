@@ -40,7 +40,7 @@ export class NewsService {
     postData.append('image' , newsFormValue.image );
     postData.append('avatarPdf' , newsFormValue.avatarPdf );
     postData.append('auteurId' , String(user.getId()) );
-    return this.httpClient.post<MessageModel>(apiUrl,  postData);
+    return this.httpClient.post<any>(apiUrl,  postData);
   }
 
 }
