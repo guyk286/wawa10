@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NewsType } from '../types/news-status.enum';
-import { KvpModel } from '../../../common/model/kvp.model';
-import { AppUtils } from '../../../common/utils/AppUtils';
-import { AuthService } from '../../auth/services/auth.service';
-import { AuthenticatedUserModel } from '../../auth/model/authenticated-user.model';
+
 import { NewsService } from '../services/news.service';
+import { AuthenticatedUserModel } from '../../../auth/model/authenticated-user.model';
+import { KvpModel } from '../../../../common/model/kvp.model';
+import { AppUtils } from '../../../../common/utils/AppUtils';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-news-create',

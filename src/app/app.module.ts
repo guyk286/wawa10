@@ -40,12 +40,10 @@ import { PrimengModule } from './modules.vendors/primeng/primeng.module';
 import { MdBootstrapProModule } from './modules.vendors/mdbootstrap/md-bootstrap-pro.module';
 import { MessageService } from './common/message/message.service';
 
-import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MessageComponent } from './common/message/message.component';
 import { AppCommonModule } from './modules/common/app-common.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { ContactModule } from './modules/contact/contact.module';
-import { NewsModule } from './modules/news/news.module';
 import { LocalModule } from './modules/local/local.module';
 import { PrixModule } from './modules/prix/prix.module';
 import { SponsorsModule } from './modules/sponsors/sponsors.module';
@@ -101,7 +99,6 @@ import { SponsorsModule } from './modules/sponsors/sponsors.module';
     AppCommonModule,
     AdminModule,
     ContactModule,
-    NewsModule,
     LocalModule,
     PrixModule,
     SponsorsModule,

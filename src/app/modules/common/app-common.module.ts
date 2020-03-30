@@ -12,10 +12,20 @@ import { MaterialModule } from '../../modules.vendors/google.angular.material/ma
 import { PdfViewerComponent } from './pdf/pdf-viewer/pdf-viewer.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { AppCommonRoutingModule } from './app-common-routing.module';
+import { NewsListeComponent } from './news/news-liste/news-liste.component';
+import { NewsCreateComponent } from './news/news-create/news-create.component';
+import { NewsComponent } from './news/news/news.component';
+import { NewsDetailsComponent } from './news/news-details/news-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, MenuComponent, HomeComponent, PdfViewerComponent],
+  declarations: [HeaderComponent, FooterComponent, MenuComponent, HomeComponent, PdfViewerComponent,
+    NewsListeComponent, NewsCreateComponent, NewsComponent, NewsDetailsComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppCommonRoutingModule,
     PrimengModule,
     MdBootstrapProModule,
     FlexLayoutModule,
@@ -24,13 +34,14 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     NgxExtendedPdfViewerModule,
   ],
   exports: [
+    AppCommonRoutingModule,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
   ],
   providers: [
-    EnvService
+    EnvService,
   ]
 })
 export class AppCommonModule {
