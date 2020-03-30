@@ -128,11 +128,14 @@ export class AuthService {
       return this.httpClient.post<AuthenticatedUserModel>(apiUrl, { username, password, jeton });
     }
 
-    postProcessLogin(user: AuthenticatedUserModel) {
-      //this._user=user;
+    postProcessLogin(pUser: AuthenticatedUserModel) {
       
-      if (user!==null && user!==undefined) 
+      let user: AuthenticatedUserModel=null;
+
+      if (pUser!==null && pUser!==undefined) 
       {
+        user=new AuthenticatedUserModel();
+        Object.assign(user, pUser);
         this.store.dispatch( new LoginAction( {user}) );
       }
       else
@@ -204,6 +207,7 @@ export class AuthService {
       // tslint:disable-next-line:variable-name
       const _user=this.getUserFromStore();
       if(_user===null || _user===undefined ) return false;
+      if(_user.roles===null || _user.roles===undefined) return false;
       const role=_user.roles.find( r => r.authDomain.domain==='club' && r.role==='admin');
       return role !==null && role !== undefined;
     }
@@ -213,6 +217,7 @@ export class AuthService {
       // tslint:disable-next-line:variable-name
       const _user=this.getUserFromStore();
       if(! _user ) return false;
+      if(_user.roles===null || _user.roles===undefined) return false;
       const role=_user.roles.find( r => r.authDomain.domain==='stage' && r.role==='admin');
       return role !==null && role !== undefined;
     }
@@ -222,6 +227,7 @@ export class AuthService {
       // tslint:disable-next-line:variable-name
       const _user=this.getUserFromStore();
       if(! _user ) return false;
+      if(_user.roles===null || _user.roles===undefined) return false;
       const role=_user.roles.find( r => r.authDomain.domain==='entrainement' && r.role==='admin');
       return role !==null && role !== undefined;
     }
