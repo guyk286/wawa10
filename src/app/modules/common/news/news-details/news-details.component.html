@@ -35,7 +35,7 @@
           <!-- Excerpt -->
           <p class="dark-grey-text">{{news.presentation}}.</p>
           <!-- Post data -->
-          <p>by <a class="font-weight-bold">Jessica Clark</a>, 12/04/2018</p>
+          <p *ngIf="news.auteur">Par: <a class="font-weight-bold">{{news.auteur.prenom + ' ' + news.auteur.nom}} &nbsp;</a>, {{ news.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
           <!-- Read more button -->
           
           <div *ngIf="context==='Admin'">
@@ -53,6 +53,8 @@
                       [render-text]="true"
                       style="display: block;"
                       [show-all]="true"
+                      [autoresize]="true"
+                      [fit-to-page]="true"
         ></pdf-viewer>
     </div>
 </ng-template>

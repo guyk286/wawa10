@@ -29,7 +29,7 @@
       <!-- Excerpt -->
       <p class="dark-grey-text">{{news.presentation}}.</p>
       <!-- Post data -->
-      <p *ngIf="news.auteur">par: <a class="font-weight-bold">{{news.auteur.prenom + ' ' + news.auteur.nom}} &nbsp;</a>, {{ news.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
+      <p *ngIf="news.auteur">Par: <a class="font-weight-bold">{{news.auteur.prenom + ' ' + news.auteur.nom}} &nbsp;</a>, {{ news.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
       <!-- Read more button -->
       
       <!-- <a mdbBtn color="primary" mdbWavesEffect *ngIf="news.document" (click)="onShowNewsDetails()">Lire la suite...</a> -->
