@@ -47,6 +47,7 @@ import { ContactModule } from './modules/contact/contact.module';
 import { LocalModule } from './modules/local/local.module';
 import { PrixModule } from './modules/prix/prix.module';
 import { SponsorsModule } from './modules/sponsors/sponsors.module';
+import { InterclubsModule } from './modules/interclubs/interclubs.module';
 // import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 //import { MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 //import { ButtonsModule, WavesModule, CollapseModule } from 'ng-uikit-pro-standard'
@@ -102,6 +103,7 @@ import { SponsorsModule } from './modules/sponsors/sponsors.module';
     LocalModule,
     PrixModule,
     SponsorsModule,
+    InterclubsModule,
     // Import the app routing module after the other app modules, so that the routes are merged
     AppRoutingModule, 
   ],
